@@ -3,11 +3,11 @@
 	email = britishben@gmail.com
 	
 [color]
-    ui = true
+    ui = auto
 
 [color "branch"]
     current = yellow reverse
-    local = yello
+    local = yellow
     remote = green
 
 [color "diff"]
@@ -17,9 +17,9 @@
     new = green bold
 
 [color "status"]
-    added = yellow
-    changed = green
-    untracked = red
+    added = green
+    changed = blue
+    deleted = red
     
 [core]
 	editor = vim
@@ -33,3 +33,5 @@
 [url "https://bitbucket.org/"]
     insteadOf = bb:
     
+[alias]
+	ls = ls-files
