@@ -33,5 +33,8 @@
 [url "https://bitbucket.org/"]
     insteadOf = bb:
     
+[url "https://notabug.org/"]
+    insteadOf = nab:
+    
 [alias]
 	ls = ls-files
