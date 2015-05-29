@@ -4,6 +4,7 @@
 	
 [color]
     ui = auto
+    pager = true
 
 [color "branch"]
     current = yellow reverse
@@ -23,6 +24,12 @@
     
 [core]
 	editor = vim
+	
+[diff]
+	tool = vimdiff
+	
+[merge]
+	tool = vimdiff
 	
 [url "https://github.com/"]
     insteadOf = gh:
