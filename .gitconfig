@@ -1,5 +1,5 @@
 [user]
-	name = Benny Mac
+	name = Benjamin P. McKenna
 	email = britishben@gmail.com
 	
 [color]
@@ -38,3 +38,4 @@
     
 [alias]
 	ls = ls-files
+	plog = log --graph --abbrev-commit --date=relative --pretty=format:'%Cred%h%Creset %C(yellow)%d%Creset %C(cyan)%an%Creset -%s %Cgreen(%cr)'
