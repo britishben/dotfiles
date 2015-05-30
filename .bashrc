@@ -27,23 +27,26 @@ alias cp='cp -v'
 alias mv='mv -v'
 
 ### git aliases ###
+alias ga='git add'
 alias gc='git commit'
 alias gcm='git commit -m'
 alias gs='git status'
+alias gl='git plog'
 
 ### useful things I found, not really tested yet ###
 alias diskspace="du -S | sort -n -r | more"
 alias bd='cd - && pwd'
 #alias screenshot='import -window root ~/Desktop/`date +%Y%m%d%H%M`.png'
 
-up() { cd $(eval printf '../'%.0s {1..$1}) && pwd; }. #up 4 goes up 4 directories
+up() { cd $(eval printf '../'%.0s {1..$1}) && pwd; } #up 4 goes up 4 directories
 
-if [ -f ~/.git-prompt.sh ]
-    then
-    source ~/.git-prompt.sh
-    export GIT_PS1_SHOWDIRTYSTATE=true
-    export PS1='[\u@\h(\l) \W$(declare -F __git_ps1 &>/dev/null && __git_ps1 " (%s)")]\$'
+#if [ -f ~/.git-prompt.sh ]
+#    then
+#    source ~/.git-prompt.sh
+#    export GIT_PS1_SHOWDIRTYSTATE=true
+#    export PS1='[\u@\h(\l) \W$(declare -F __git_ps1 &>/dev/null && __git_ps1 " (%s)")]\$'
     #else
     #echo "Getting git-prompt.sh"
     #curl -o ~/.git-prompt.sh https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
-fi
+#fi
+
