@@ -36,6 +36,7 @@ alias gl='git plog'
 ### useful things I found, not really tested yet ###
 alias diskspace="du -S | sort -n -r | more"
 alias bd='cd - && pwd'
+alias wtf='hostname && cat /etc/*-release && whoami && pwd'
 #alias screenshot='import -window root ~/Desktop/`date +%Y%m%d%H%M`.png'
 
 up() { cd $(eval printf '../'%.0s {1..$1}) && pwd; } #up 4 goes up 4 directories
