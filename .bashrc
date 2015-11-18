@@ -25,6 +25,7 @@ alias vb='vim ~/.bashrc'
 alias rm='rm -iv' # safety first!
 alias cp='cp -v'
 alias mv='mv -v'
+alias ssr='sudo systemctl restart'
 
 ### git aliases ###
 alias ga='git add'
