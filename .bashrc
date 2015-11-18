@@ -6,8 +6,7 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-#PS1='[\u@\h \W]\$ ' #basic prompt, make fancy later.
-PS1='\u@\h on \l\n\d \t \$ '
+PS1='[\u@\h:\l \W]\$ ' #basic prompt, make fancy later. 
 
 ### options ###
 export GREP_OPTIONS='--color=auto'
