@@ -36,6 +36,7 @@ alias gc='git commit'
 alias gcm='git commit -m'
 alias gs='git status'
 alias gl='git plog'
+alias gpom='git push origin master'
 
 ### useful things I found, not really tested yet ###
 alias diskspace="du -S | sort -n -r | less"
