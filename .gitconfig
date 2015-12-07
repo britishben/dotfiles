@@ -46,3 +46,6 @@
 [alias]
 	ls = ls-files
 	plog = log --graph --abbrev-commit --date=relative --pretty=format:'%Cred%h%Creset %C(yellow)%d%Creset %C(cyan)%an%Creset -%s %Cgreen(%cr)'
+
+[credential]
+	helper = cache --timeout=3600
