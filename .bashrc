@@ -25,6 +25,7 @@ alias vc='vim ~/.conkyrc'
 alias rm='rm -iv' # safety first!
 alias cp='cp -v'
 alias mv='mv -v'
+alias lynx='elinks'
 alias suroot='sudo -i' #Ubuntu doesn't trust me
 alias ssr='sudo systemctl restart' #easily restart a service
 
