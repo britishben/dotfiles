@@ -38,7 +38,7 @@ ${exec whoami} @ $nodename
 $sysname $kernel on $machine
 $hr
 ${alignc}${time %A, %d %B %Y}
-${alignc}${time %k:%M:%S}
+${alignc}${time %k:%M:%S (%Z)}
 $hr
 ${color grey}Uptime:$color $uptime
 ${color grey}Battery:$color${battery_bar 5 BAT0}
