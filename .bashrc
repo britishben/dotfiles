@@ -9,7 +9,7 @@
 PS1='\u@\h(\l):\W \$ ' #basic prompt, make fancy later. 
 
 ### options ###
-export GREP_OPTIONS='--color=auto'
+#export GREP_OPTIONS='--color=auto'
 alias ls='ls --color=auto' #I'm counting this as an option, it really should be
 export HISTFILESIZE=100000
 export HISTSIZE=100000
