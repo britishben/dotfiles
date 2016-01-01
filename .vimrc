@@ -21,8 +21,25 @@ set ignorecase          " Do case insensitive matching
 set smartcase           " Do smart case matching
 set incsearch           " Incremental search
 set expandtab           " turn <tab>s into spaces
-set tabstop=4           " <tab> is 4 wide
-set shiftwidth=4        " <shift> is 4 wide
+"set smarttab			" turn <tab>s into indents at the beginning of a line
+set softtabstop=4		" keypress <tab> is 4 wide
+set tabstop=4           " existing <tab> is 4 wide
+set shiftwidth=4        " indent is 4 wide
+set nojoinspaces		" one space after punctuation
+
+let g:netrw_liststyle=3       "Nerdtree-style explorer mode
+
+""""""""""
+" SPLITS "
+""""""""""
+set splitbelow          " new split at bottom
+set splitright          " new split at right
+
+" Easier split navigation (remove Ctrl-W first)
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+nnoremap <C-h> <C-w>h
 
 """"""""""""
 " WILDMENU "
@@ -63,6 +80,12 @@ iabbrev @@  britishben@gmail.com
 " EXPERIMENTAL "
 """"""""""""""""
 
+"set modeline
+
 filetype on                   " Enable filetype detection
 filetype indent on            " Enable filetype-specific indenting
 filetype plugin on            " Enable filetype-specific plugins
+
+
+" Use actual tab chars in Makefiles.
+autocmd FileType make set tabstop=8 shiftwidth=8 softtabstop=0 noexpandtab
