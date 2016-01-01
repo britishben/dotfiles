@@ -25,6 +25,7 @@ alias vc='vim ~/.conkyrc'
 alias rm='rm -iv' # safety first!
 alias cp='cp -v'
 alias mv='mv -v'
+alias cls='clear' #old dos habit
 alias lynx='elinks'
 alias suroot='sudo -i' #Ubuntu doesn't trust me
 alias ssr='sudo systemctl restart' #easily restart a service
@@ -33,7 +34,9 @@ function firefox() { command firefox "$@" & } #run firefox in background
 
 ### git aliases ###
 alias ga='git add'
+alias gax='git reset HEAD' #unstage a file easily
 alias gc='git commit'
+alias gd='git diff'
 alias gcm='git commit -m'
 alias gs='git status'
 alias gl='git plog'
