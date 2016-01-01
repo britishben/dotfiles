@@ -26,8 +26,8 @@ set softtabstop=4		" keypress <tab> is 4 wide
 set tabstop=4           " existing <tab> is 4 wide
 set shiftwidth=4        " indent is 4 wide
 set nojoinspaces		" one space after punctuation
-set spelllang=en        " use {set spell} to enable spellchecking
-set spellfile=~/.vimspell.utf-8.add
+set spelllang=en_gb     " use {set spell} to enable spellchecking
+set spellfile=~/.vim/.vimspell.utf-8.add
 
 let g:netrw_liststyle=3       "Nerdtree-style explorer mode
 
