@@ -33,7 +33,7 @@ alias ssr='sudo systemctl restart' #easily restart a service
 function firefox() { command firefox "$@" & } #run firefox in background
 
 ### git aliases ###
-alias ga='git add'
+alias ga='git add --patch'
 alias gax='git reset HEAD' #unstage a file easily
 alias gc='git commit'
 alias gd='git diff'
