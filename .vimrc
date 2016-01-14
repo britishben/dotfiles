@@ -3,7 +3,6 @@
 """"""""""""
 " BOOLEANS "
 """"""""""""
-
 set nocompatible        " don't force vi compatability
 set history=10000       " how many lines vim should remember
 syntax enable           " enable syntax processing
@@ -30,6 +29,11 @@ set spelllang=en_gb     " use {set spell} to enable spellchecking
 set spellfile=~/.vim/.vimspell.utf-8.add
 
 let g:netrw_liststyle=3       "Nerdtree-style explorer mode
+
+"""""""""""
+" COLOURS "
+"""""""""""
+colo desert
 
 """"""""""
 " SPLITS "
