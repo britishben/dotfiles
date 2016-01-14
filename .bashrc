@@ -46,14 +46,22 @@ alias gnew='git plog HEAD@{1}..HEAD@{0}'
 ### useful things I found, not really tested yet ###
 alias diskspace="du -S | sort -n -r | less" #what is taking up space?
 alias bd='cd - && pwd' #undo a cd, basically
-alias wtf='cat /etc/*-release && hostname && whoami && pwd'
+#alias wtf='cat /etc/*-release && hostname && whoami && pwd'
 alias takescreen='import -window root ~/Desktop/`date +%Y%m%d%H%M`.png' #needs imagemagick, probably replace later
 
-up() { cd $(eval printf '../'%.0s {1..$1}) && pwd; } #up 4 goes up 4 directories
+function wtf() {
+    printf $USER"@"$HOSTNAME" running " && uname -mrs;
+    printf "\n";
+    cat /etc/*-release;
+    printf "\n";
+    printf "Home directory: "$HOME;
+    printf "Current directory:"$PWD;
+}
+
+function up() { cd $(eval printf '../'%.0s {1..$1}) && pwd; } #up 4 goes up 4 directories
 
 #extract most types of files
-function extract()
-{
+function extract() {
     if [ -f $1 ] ; then
          case $1 in
              *.tar.bz2)   tar xvjf $1     ;;
