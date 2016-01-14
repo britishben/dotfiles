@@ -41,7 +41,7 @@ alias gcm='git commit -m'
 alias gs='git status'
 alias gl='git plog'
 alias gpom='git push origin master'
-alias gnew='git plog HEAD@{1}..HEAD@{0}"
+alias gnew='git plog HEAD@{1}..HEAD@{0}'
 
 ### useful things I found, not really tested yet ###
 alias diskspace="du -S | sort -n -r | less" #what is taking up space?
