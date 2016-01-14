@@ -50,6 +50,7 @@ alias takescreen='import -window root ~/Desktop/`date +%Y%m%d%H%M`.png' #needs i
 
 up() { cd $(eval printf '../'%.0s {1..$1}) && pwd; } #up 4 goes up 4 directories
 
+#extract most types of files
 function extract()
 {
     if [ -f $1 ] ; then
@@ -70,4 +71,9 @@ function extract()
      else
          echo "'$1' is not a valid file!"
      fi
+}
+
+#bookmark a directory
+function mark() { 
+    export $1=`pwd`;
 }
