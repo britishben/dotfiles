@@ -50,8 +50,8 @@ alias bd='cd -' #undo a cd, basically
 alias takescreen='import -window root ~/Desktop/`date +%Y%m%d%H%M`.png' #needs imagemagick, probably replace later
 
 function wtf() {
-    printf $USER"@"$HOSTNAME" running " && uname -mrs;
-    printf "\n";
+    printf $USER"@"$HOSTNAME" running $OS(" && uname -mrs;
+    printf ")\n";
     printf /etc/*-rel* /etc/*_ver*;
     cat /etc/*-rel* /etc/*_ver*;
     printf "\n";
