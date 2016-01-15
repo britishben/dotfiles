@@ -52,7 +52,8 @@ alias takescreen='import -window root ~/Desktop/`date +%Y%m%d%H%M`.png' #needs i
 function wtf() {
     printf $USER"@"$HOSTNAME" running " && uname -mrs;
     printf "\n";
-    cat /etc/*-release;
+    printf /etc/*-rel* /etc/*_ver*;
+    cat /etc/*-rel* /etc/*_ver*;
     printf "\n";
     printf "Home directory: "$HOME;
     printf "Current directory:"$PWD;
