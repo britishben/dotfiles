@@ -29,6 +29,7 @@ alias cls='clear' #old dos habit
 alias lynx='elinks'
 alias suroot='sudo -i' #Ubuntu doesn't trust me, not that it should
 alias ssr='sudo systemctl restart' #easily restart a service
+alias ds="du -Sh | sort -h -r | less" #what is taking up space?
 
 function firefox() { command firefox "$@" & } #run firefox in background
 
@@ -44,8 +45,7 @@ alias gpom='git push origin master'
 alias gnew='git plog HEAD@{1}..HEAD@{0}'
 
 ### useful things I found, not really tested yet ###
-alias diskspace="du -S | sort -n -r | less" #what is taking up space?
-alias bd='cd - && pwd' #undo a cd, basically
+alias bd='cd -' #undo a cd, basically
 #alias wtf='cat /etc/*-release && hostname && whoami && pwd'
 alias takescreen='import -window root ~/Desktop/`date +%Y%m%d%H%M`.png' #needs imagemagick, probably replace later
 
