@@ -1,7 +1,14 @@
-#Crap i3 config - do not use
+#Crap i3 config - very likely broken - do not use
 
 set $mod Mod4
+font pango:Terminus 11px
 focus_follows_mouse no
+
+# Fullscreen
+bindsym $mod+f fullscreen toggle
+
+# Restart
+bindsym $mod+Shift+r restart
 
 mode "resize" {
         bindsym h resize shrink width 10 px or 10 ppt
@@ -66,3 +73,5 @@ bindsym $mod+Shift+KP_10 move container to workspace $ws10
 
 bindsym $mod+Tab workspace next
 bindsym $mod+Shift+Tab workspace prev
+
+exec_always --no-startup-id nitrogen --restore
