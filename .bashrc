@@ -25,6 +25,7 @@ alias vc='vim ~/.conkyrc'
 alias rm='rm -iv' # safety first!
 alias cp='cp -v'
 alias mv='mv -v'
+alias bd='cd -' #undo a cd, basically
 alias cls='clear' #old dos habit
 alias lynx='elinks'
 alias suroot='sudo -i' #Ubuntu doesn't trust me, not that it should
@@ -32,6 +33,8 @@ alias ssr='sudo systemctl restart' #easily restart a service
 alias ds="du -Sh | sort -h -r | less" #what is taking up space?
 
 function firefox() { command firefox "$@" & } #run firefox in background
+
+function up() { cd $(eval printf '../'%.0s {1..$1}) && pwd; } #up 4 goes up 4 directories
 
 ### git aliases ###
 alias ga='git add --patch'
@@ -41,11 +44,17 @@ alias gd='git diff'
 alias gcm='git commit -m'
 alias gs='git status'
 alias gl='git plog'
+alias gp='git pull'
 alias gpom='git push origin master'
 alias gnew='git plog HEAD@{1}..HEAD@{0}'
 
+### git-svn aliases ###
+alias gsd='git svn dcommit'
+alias gsf='git svn fetch'
+alias gsr='git svn rebase'
+alias gsc='git rebase -i git-svn' #clean up commits before I push them to the SVN
+
 ### useful things I found, not really tested yet ###
-alias bd='cd -' #undo a cd, basically
 #alias wtf='cat /etc/*-release && hostname && whoami && pwd'
 alias takescreen='import -window root ~/Desktop/`date +%Y%m%d%H%M`.png' #needs imagemagick, probably replace later
 
@@ -58,8 +67,6 @@ function wtf() {
     printf "Home directory: "$HOME;
     printf "Current directory:"$PWD;
 }
-
-function up() { cd $(eval printf '../'%.0s {1..$1}) && pwd; } #up 4 goes up 4 directories
 
 #extract most types of files
 function extract() {
