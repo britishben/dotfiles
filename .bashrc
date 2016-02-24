@@ -49,15 +49,16 @@ alias gpom='git push origin master'
 alias gnew='git plog HEAD@{1}..HEAD@{0}'
 
 ### git-svn aliases ###
-alias gsd='git svn dcommit'
 alias gsf='git svn fetch'
 alias gsr='git svn rebase'
-alias gsc='git rebase -i git-svn' #clean up commits before I push them to the SVN
+#alias gsc='git rebase -i git-svn' #clean up commits before I push them to the SVN
+#alias gsd='git svn dcommit'
+alias gsd='git rebase -i git-svn && git svn dcommit' #clean up commits, and then push to SVN
 
 ### useful things I found, not really tested yet ###
-#alias wtf='cat /etc/*-release && hostname && whoami && pwd'
 alias takescreen='import -window root ~/Desktop/`date +%Y%m%d%H%M`.png' #needs imagemagick, probably replace later
 
+#alias wtf='cat /etc/*-release && hostname && whoami && pwd'
 function wtf() {
     printf $USER"@"$HOSTNAME" running $OS(" && uname -mrs;
     printf ")\n";
