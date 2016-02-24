@@ -21,6 +21,7 @@ shopt -s checkwinsize
 
 ### aliases ###
 alias vb='vim ~/.bashrc'
+alias rb='source ~/.bashrc'
 alias vc='vim ~/.conkyrc'
 alias rm='rm -iv' # safety first!
 alias cp='cp -v'
@@ -60,13 +61,12 @@ alias takescreen='import -window root ~/Desktop/`date +%Y%m%d%H%M`.png' #needs i
 
 #alias wtf='cat /etc/*-release && hostname && whoami && pwd'
 function wtf() {
-    printf $USER"@"$HOSTNAME" running $OS(" && uname -mrs;
-    printf ")\n";
-    printf /etc/*-rel* /etc/*_ver*;
-    cat /etc/*-rel* /etc/*_ver*;
+    printf "$USER@$HOSTNAME running $OS" && uname -mrs;
     printf "\n";
-    printf "Home directory: "$HOME;
-    printf "Current directory:"$PWD;
+    more /etc/*-rel* /etc/*_ver* | cat;
+    printf "\n";
+    printf "Home directory: "$HOME"\n";
+    printf "Current directory:"$PWD"\n";
 }
 
 #extract most types of files
