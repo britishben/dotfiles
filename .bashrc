@@ -41,6 +41,8 @@ function up() { cd $(eval printf '../'%.0s {1..$1}) && pwd; } #up 4 goes up 4 di
 alias ga='git add --patch'
 alias gax='git reset HEAD' #unstage a file easily
 alias gc='git commit'
+alias gco='git checkout'
+alias gb='git branch'
 alias gd='git diff'
 alias gcm='git commit -m'
 alias gs='git status'
@@ -52,7 +54,7 @@ alias gnew='git plog HEAD@{1}..HEAD@{0}'
 ### git-svn aliases ###
 alias gsf='git svn fetch'
 alias gsr='git svn rebase'
-#alias gsc='git rebase -i git-svn' #clean up commits before I push them to the SVN
+#alias gsc='git rebase -i git-svn' #clean up commits
 #alias gsd='git svn dcommit'
 alias gsd='git rebase -i git-svn && git svn dcommit' #clean up commits, and then push to SVN
 
@@ -92,6 +94,5 @@ function extract() {
 }
 
 #bookmark a directory
-function mark() { 
-    export $1=`pwd`;
-}
+function mark() { export $1=`pwd`; printf "saved as $"$1"\n"; }
+function unmark() { unset $1; printf "deleted $"$1"\n"; }
