@@ -6,5 +6,6 @@ SAVEHIST=100000
 setopt appendhistory autocd nomatch
 unsetopt beep notify
 bindkey -v
-#alias vz = "vi ~/.zshrc"
-PS1="%n@%m(%l):%~ %#"
+alias vz='vi ~/.zshrc'
+alias rz='source ~/.zshrc'
+PS1="%n@%m(%l):%1~ %# "
