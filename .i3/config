@@ -77,6 +77,18 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
+#workspace names
+set $ws1 one
+set $ws2 two
+set $ws3 three
+set $ws4 four
+set $ws5 five
+set $ws6 six
+set $ws7 seven
+set $ws8 eight
+set $ws9 niner
+set $ws10 ten
+
 # workspace switch
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
