@@ -86,7 +86,7 @@ set $ws5 five
 set $ws6 six
 set $ws7 seven
 set $ws8 eight
-set $ws9 niner
+set $ws9 nine
 set $ws10 ten
 
 # workspace switch

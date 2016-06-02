@@ -51,6 +51,9 @@ alias gp='git pull'
 alias gpom='git push origin master'
 alias gnew='git plog HEAD@{1}..HEAD@{0}'
 
+### svn aliases ###
+alias sup='svn update'
+
 ### git-svn aliases ###
 alias gsf='git svn fetch'
 alias gsr='git svn rebase'
