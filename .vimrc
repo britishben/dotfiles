@@ -3,32 +3,34 @@
 """"""""""""
 " BOOLEANS "
 """"""""""""
-set nocompatible        " don't force vi compatability
-set history=10000       " how many lines vim should remember
-syntax enable           " enable syntax processing
-set mouse=a             " Enable mouse support in console
-set visualbell          " Turn off sound
-set title               " Show filename in titlebar
-set number              " show line numbers
-set showcmd             " show (partial) command in bottom bar
-set ruler               " show cursor position
-set t_Co=256            " 256 colours
-set background=dark     " pick colours for dark backgrounds
-set autoread            " If a file is changed outside of vim, reload it without asking
-set lazyredraw          " redraw only when we need to (not during macros)
-set showmatch           " highlight matching [{()}]
-set autoindent          " indent newline to match previous line
-set ignorecase          " Do case insensitive matching
-set smartcase           " Do smart case matching
-set incsearch           " Incremental search
-set expandtab           " turn <tab>s into spaces
-"set smarttab           " turn <tab>s into indents at the beginning of a line
-set softtabstop=4       " keypress <tab> is 4 wide
-set tabstop=4           " existing <tab> is 4 wide
-set shiftwidth=4        " indent is 4 wide
-set scrolloff=3         " 3 lines of context on page scroll
-set nojoinspaces        " one space after punctuation
-set spelllang=en_gb     " use {set spell} to enable spellchecking
+set nocompatible          " don't force vi compatability
+set history=10000         " how many lines vim should remember
+syntax enable             " enable syntax processing
+set mouse=a               " Enable mouse support in console
+set visualbell            " Turn off sound
+"set title                 " Show filename in titlebar
+"set titleold=""           " Old title blank
+"set titlestring=VIM:\ %F  " Set title
+set number                " show line numbers
+set showcmd               " show (partial) command in bottom bar
+set ruler                 " show cursor position
+set t_Co=256              " 256 colours
+set background=dark       " pick colours for dark backgrounds
+set autoread              " If a file is changed outside of vim, reload it without asking
+set lazyredraw            " redraw only when we need to (not during macros)
+set showmatch             " highlight matching [{()}]
+set autoindent            " indent newline to match previous line
+set ignorecase            " Do case insensitive matching
+set smartcase             " Do smart case matching
+set incsearch             " Incremental search
+set expandtab             " turn <tab>s into spaces
+"set smarttab             " turn <tab>s into indents at the beginning of a line
+set softtabstop=4         " keypress <tab> is 4 wide
+set tabstop=4             " existing <tab> is 4 wide
+set shiftwidth=4          " indent is 4 wide
+set scrolloff=3           " 3 lines of context on page scroll
+set nojoinspaces          " one space after punctuation
+set spelllang=en_gb       " use {set spell} to enable spellchecking
 set spellfile=~/.vim/.vimspell.utf-8.add
 
 let g:netrw_liststyle=3       "Nerdtree-style explorer mode
