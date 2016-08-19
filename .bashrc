@@ -66,12 +66,11 @@ alias takescreen='import -window root ~/Desktop/`date +%Y%m%d%H%M`.png' #needs i
 
 #alias wtf='cat /etc/*-release && hostname && whoami && pwd'
 function wtf() {
-    printf "$USER @ $HOSTNAME running $OS" && uname -mrs;
-    printf "\n";
-    more /etc/*-rel* /etc/*_ver* | cat;
-    printf "\n";
+    printf "\n$USER @ $HOSTNAME running $OS" && uname -mrs;
     printf "Home directory: "$HOME"\n";
     printf "Current directory:"$PWD"\n";
+    more /etc/*-rel* /etc/*_ver* | cat;
+    printf "\n";
 }
 
 #extract most types of files
