@@ -158,6 +158,5 @@ bar {
 #borders
 #new_window none
 
-
 #exec --no-startup-id nitrogen --restore
 #bindsym Mod4+l exec i3lock

@@ -32,6 +32,7 @@ alias lynx='elinks'
 alias suroot='sudo -i' #Ubuntu doesn't trust me, not that it should
 alias ssr='sudo systemctl restart' #easily restart a service
 alias ds="du -Sh | sort -h -r | less" #what is taking up space?
+alias sagu='sudo apt-get update && sudo apt-get upgrade' #I'm lazy
 
 function firefox() { command firefox "$@" & } #run firefox in background
 
