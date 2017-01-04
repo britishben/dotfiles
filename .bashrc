@@ -17,6 +17,7 @@ export HISTCONTROL=ignoreboth  #ignore duplicates, and lines starting with space
 export HISTIGNORE=ls:pwd:exit:clear:cls
 export LESS="-iMFXR" # ignore case, long prompt, exit if it fits on one screen, allow colors for ls and grep colours
 export EDITOR=vim
+export LANG="en_GB.utf8"
 shopt -s checkwinsize
 
 ### aliases ###
@@ -31,7 +32,7 @@ alias cls='clear' #old dos habit
 alias lynx='elinks'
 #alias suroot='sudo -i' #Ubuntu doesn't trust me, not that it should
 alias ssr='sudo systemctl restart' #easily restart a service
-alias ds="du -Sh 2>/dev/null | sort -h -r | head -n 25" #what is taking up space?
+alias ds="du -aSh 2>/dev/null | sort -h -r | head -n 25" #what is taking up space?
 alias sagu='sudo apt-get update && sudo apt-get upgrade' #I'm lazy
 
 function firefox() { command firefox "$@" & } #run firefox in background
