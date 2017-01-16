@@ -33,6 +33,7 @@ alias lynx='elinks'
 alias ssr='sudo systemctl restart' #easily restart a service
 alias ds="du -Sh 2>/dev/null | sort -h -r | head -n 25" #what is taking up space?
 alias sagu='sudo apt-get update && sudo apt-get upgrade' #I'm lazy
+alias ssa='eval `ssh-agent` && ssh-add'
 
 function firefox() { command firefox "$@" & } #run firefox in background
 
