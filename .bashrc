@@ -63,6 +63,13 @@ alias gsr='git svn rebase'
 #alias gsd='git svn dcommit'
 alias gsd='git rebase -i git-svn && git svn dcommit' #clean up commits, and then push to SVN
 
+### tmux aliases ###
+alias tml='tmux list-sessions'
+alias tma='tmux attach-session -t'
+if [ -f /etc/bash_completion.d/tma ]; then
+    . /etc/bash_completion.d/tma
+fi
+
 #alias wtf='cat /etc/*-release && hostname && whoami && pwd'
 function wtf() {
     printf "\n$USER @ $HOSTNAME running $OS" && uname -mrs;
