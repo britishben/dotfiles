@@ -8,6 +8,10 @@
 
 PS1='\u@\h(\l):\W \$ ' #basic prompt, make fancy later. 
 
+### PATH ###
+#PATH="$HOME/dotfiles/scripts:${PATH}"
+#export PATH
+
 ### options ###
 #export GREP_OPTIONS='--color=auto' #apparently deprecated
 alias ls='ls --color=auto' #I'm counting this as an option, it really should be
@@ -34,6 +38,7 @@ alias lynx='elinks'
 alias ssr='sudo systemctl restart' #easily restart a service
 alias ds="du -aSh 2>/dev/null | sort -h -r | head -n 25" #what is taking up space?
 alias sagu='sudo apt-get update && sudo apt-get upgrade' #I'm lazy
+alias cwd='printf "%q\n" "$(pwd)"' #shell-format pwd
 
 function firefox() { command firefox "$@" & } #run firefox in background
 
@@ -102,5 +107,11 @@ function extract() {
 }
 
 #bookmark a directory
-function mark() { export $1=`pwd`; printf "saved as $"$1"\n"; }
-function unmark() { unset $1; printf "deleted $"$1"\n"; }
+function mark() {
+    export $1="`cwd`";
+    printf "saved as $"$1"\n";
+}
+function unmark() {
+    unset $1;
+    printf "deleted $"$1"\n";
+}
