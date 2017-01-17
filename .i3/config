@@ -133,7 +133,7 @@ bindsym $mod+Shift+KP_6 move container to workspace $ws6
 bindsym $mod+Shift+KP_7 move container to workspace $ws7
 bindsym $mod+Shift+KP_8 move container to workspace $ws8
 bindsym $mod+Shift+KP_9 move container to workspace $ws9
-bindsym $mod+Shift+KP_10 move container to workspace $ws10
+bindsym $mod+Shift+KP_0 move container to workspace $ws10
 
 bindsym $mod+Tab workspace next
 bindsym $mod+Shift+Tab workspace prev
