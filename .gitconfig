@@ -35,6 +35,9 @@
 [url "https://github.com/"]
     insteadOf = gh:
 
+[url "https://gitlab.com/"]
+    insteadOf = gl:
+
 [url "https://gist.github.com/"]
     insteadOf = gist:
 
