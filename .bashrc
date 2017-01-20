@@ -40,6 +40,7 @@ alias ds="du -aSh 2>/dev/null | sort -h -r | head -n 25" #what is taking up spac
 alias sagu='sudo apt-get update && sudo apt-get upgrade' #I'm lazy
 alias ssa='eval `ssh-agent` && ssh-add'
 alias cwd='printf "%q\n" "$(pwd)"' #shell-format pwd
+alias ed='ed -p:' #ed's command prompt is :
 
 function firefox() { command firefox "$@" & } #run firefox in background
 
@@ -51,13 +52,13 @@ alias gax='git reset HEAD' #unstage a file easily
 #alias gc='git commit'     #never really used, gcm is much easier
 alias gco='git checkout'
 alias gb='git branch'
-alias gd='git diff'
+alias gd='git diff'        #what are the staged changes?
 alias gcm='git commit -m'
 alias gs='git status'
-alias gl='git plog'
+alias gl='git plog'        #pretty log format
 alias gp='git pull'
 alias gpom='git push origin master'
-alias gnew='git plog HEAD@{1}..HEAD@{0}'
+alias gnew='git plog HEAD@{1}..HEAD@{0}' #latest commit
 
 ### svn aliases ###
 alias sup='svn update'
