@@ -1,4 +1,4 @@
-" BPMcKenna's VimRC
+" BPM's VimRC
 
 """"""""""""
 " BOOLEANS "
@@ -77,7 +77,7 @@ endif
 " sv reloads this config.
 :nnoremap <leader>sv :source $MYVIMRC<cr>
 
-inoremap jk <esc>   " make jk quit insert mode
+"inoremap jk <esc>   " make jk quit insert mode
 
 """""""""""""""""
 " ABBREVIATIONS "
