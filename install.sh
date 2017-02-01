@@ -6,7 +6,7 @@ function homelink(){
     if [ -f ~/$FILE ]; then
         printf "File Exists! "
         if ! confirm $FILE; then
-            return 0;
+            return 1;
         fi
     fi
     echo "linking $FILE $1"
@@ -37,7 +37,14 @@ fi
 # tmux
 if confirm tmux; then
     homelink .tmux.conf
-   ln -sfv ./tma "/etc/bash_completion.d/tma"
+    if [ -f ~/$FILE ]; then
+        printf "File Exists! "
+        if confirm $FILE; then
+            ln -sfv ./tma "/etc/bash_completion.d/tma"
+        fi
+    else
+        ln -sfv ./tma "/etc/bash_completion.d/tma"
+    fi
 fi
 
 # git
@@ -65,6 +72,12 @@ fi
 # lxterm
 if confirm lxterminal; then
     homelink .config/lxterminal folder
+fi
+
+# annoyances
+if [ ! -f ~/.sudo_as_admin_successful ]; then
+    echo "I know how to sudo."
+    touch ~/.sudo_as_admin_successful
 fi
 
 ###EOF###
