@@ -3,6 +3,12 @@
 
 function homelink(){
     FILE=$1; shift;
+    if [ -f ~/$FILE ]; then
+        printf "File Exists! "
+        if ! confirm $FILE; then
+            return 0;
+        fi
+    fi
     echo "linking $FILE $1"
     ln -sfv "./$FILE" ~/$FILE
 }
@@ -25,7 +31,7 @@ fi
 
 # zsh
 if confirm zsh; then
-    homelink .zsh
+    homelink .zshrc
 fi
 
 # tmux
