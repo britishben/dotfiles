@@ -41,6 +41,7 @@ alias sagu='sudo apt-get update && sudo apt-get upgrade' #I'm lazy
 alias ssa='eval `ssh-agent` && ssh-add'
 alias cwd='printf "%q\n" "$(pwd)"' #shell-format pwd
 alias ed='ed -p:' #ed's command prompt is :
+alias ps?='ps alx | grep' #bsd format ps search
 
 function firefox() { command firefox "$@" & } #run firefox in background
 
