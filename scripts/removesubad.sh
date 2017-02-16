@@ -7,6 +7,9 @@ dos2unix *.srt
 
 #remove subtitle ads
 
+#addic7ed
+sed -i '/.*www\.addic7ed\.com.*/d' *.srt
+
 ### ENGLISH ###
 #vegusto
 sed -i '/Delicious Vegan Sausages, Cheese/d' *.en.srt && sed -i '/and Burgers - Vegusto.co.uk/d' *.en.srt
@@ -37,4 +40,11 @@ sed -i '/Achète la mode de cet ep via Loolive.com/d' *.fr.srt
 
 ### TBA ###
 
+#sync and corrected
+#sed -i '/.*Synced & corrected.*/d' *.srt
+#sed -i 'Sync et corrigÃ© par.*' *.srt
+#sed -i 'Syncro par.*' *.srt
+#sed -i '/Resync by <font color=.*>/d'
 
+#tvsubtitles.net
+#sed -i '/<font color=.*>www.tvsubtitles.*$/d'
