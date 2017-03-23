@@ -37,12 +37,14 @@ alias lynx='elinks'
 #alias suroot='sudo -i' #Ubuntu doesn't trust me, not that it should
 alias ssr='sudo systemctl restart' #easily restart a service
 alias ds="du -aSh 2>/dev/null | sort -h -r | head -n 25" #what is taking up space?
-alias sagu='sudo apt-get update && sudo apt-get upgrade' #I'm lazy
 alias ssa='eval `ssh-agent` && ssh-add'
 alias cwd='printf "%q\n" "$(pwd)"' #shell-format pwd
 alias ed='ed -p:' #ed's command prompt is :
 alias ps?='ps alx | grep' #bsd format ps search
 
+
+### apt aliases ###
+alias sagu='sudo apt-get update && sudo apt-get upgrade' #I'm lazy
 alias acs='apt-cache search' #what's that package called?
 alias agi='sudo apt-get install' #ah, that's the one
 
