@@ -47,7 +47,7 @@ alias ps?='ps alx | grep' #bsd format ps search
 alias sagu='sudo apt-get update && sudo apt-get upgrade' #I'm lazy
 alias acs='apt-cache search' #what's that package called?
 alias agi='sudo apt-get install' #ah, that's the one
-
+alias acp='apt-policy'
 
 function firefox() { command firefox "$@" & } #run firefox in background
 
