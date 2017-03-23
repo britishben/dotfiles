@@ -42,6 +42,10 @@ alias ssa='eval `ssh-agent` && ssh-add'
 alias cwd='printf "%q\n" "$(pwd)"' #shell-format pwd
 alias ed='ed -p:' #ed's command prompt is :
 
+alias acs='apt-cache search' #what's that package called?
+alias agi='sudo apt-get install' #ah, that's the one
+
+
 function firefox() { command firefox "$@" & } #run firefox in background
 
 function up() { cd $(eval printf '../'%.0s {1..$1}) && pwd; } #up 4 goes up 4 directories
@@ -52,13 +56,14 @@ alias gax='git reset HEAD' #unstage a file easily
 #alias gc='git commit'     #never really used, gcm is much easier
 alias gco='git checkout'
 alias gb='git branch'
-alias gd='git diff'        #what are the staged changes?
+alias gdu='git diff'       #what are the unstaged changes?
+alias gd='git status -v'   #what are the staged changes?
 alias gcm='git commit -m'
 alias gs='git status'
 alias gl='git plog'        #pretty log format
 alias gp='git pull'
 alias gpom='git push origin master'
-alias gnew='git plog HEAD@{1}..HEAD@{0}' #latest commit
+alias gnew='git plog HEAD@{1}..HEAD@{0}' #see only latest commit
 
 ### svn aliases ###
 alias sup='svn update'
@@ -81,7 +86,7 @@ fi
 function wtf() {
     printf "\n$USER @ $HOSTNAME running $OS" && uname -mrs;
     printf "Home directory: "$HOME"\n";
-    printf "Current directory:"$PWD"\n";
+    printf "Current directory: "$PWD"\n";
     more /etc/*-rel* /etc/*_ver* | cat;
     printf "\n";
 }
@@ -115,4 +120,15 @@ function mark() {
 function unmark() {
     unset $1;
     printf "deleted $"$1"\n";
+}
+
+function mkscript(){
+    name=$1
+    touch $name.sh
+
+    echo "#!`which bash`"
+    echo "set -eu #safety line"
+    echo "#$name.sh - written by bpm"
+
+    chmod +x $name.sh
 }
