@@ -40,7 +40,7 @@ alias ds="du -aSh 2>/dev/null | sort -h -r | head -n 25" #what is taking up spac
 alias ssa='eval `ssh-agent` && ssh-add'
 alias cwd='printf "%q\n" "$(pwd)"' #shell-format pwd
 alias ed='ed -p:' #ed's command prompt is :
-alias ps?='ps alx | grep' #bsd format ps search
+alias ps?='ps alx | grep -v "grep" | grep' #bsd format ps search
 
 
 ### apt aliases ###
