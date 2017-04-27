@@ -80,7 +80,8 @@ alias gsd='git rebase -i git-svn && git svn dcommit' #clean up commits, and then
 
 ### tmux aliases ###
 alias tml='tmux list-sessions'
-alias tma='tmux attach-session -t'
+#alias tma='tmux attach-session -t'
+alias tma='tmux new-session -As'
 if [ -f /etc/bash_completion.d/tma ]; then
     . /etc/bash_completion.d/tma
 fi

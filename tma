@@ -1,7 +1,7 @@
 ### install to /etc/bash_completion.d ###
 
 _tma() {
-    TMUX_SESSIONS=$(tmux ls -F '#S' | xargs)
+    TMUX_SESSIONS=$(tmux ls | cut -d ':' -f 1 | xargs)
 
     local cur=${COMP_WORDS[COMP_CWORD]}
     COMPREPLY=( $(compgen -W "$TMUX_SESSIONS" -- $cur) )
