@@ -6,6 +6,10 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+if [ -z "$PROMPT_COMMAND" ]; then
+    PROMPT_COMMAND='printf "\033]0;%s@%s:%s\033\\" "${USER}" "${HOSTNAME%%.*}" "${PWD/#$HOME/~}"'
+fi #sets window title
+
 PS1='\u@\h(\l):\W \$ ' #basic prompt, make fancy later. 
 
 ### PATH ###
