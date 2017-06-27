@@ -10,7 +10,7 @@ function homelink(){
         fi
     fi
     echo "linking $FILE $1"
-    ln -sfv "./$FILE" ~/$FILE
+    ln -sfv "./$FILE" $HOME/$FILE
 }
 
 function confirm(){
@@ -21,6 +21,12 @@ function confirm(){
    else return 1;
    fi
 }
+
+if [ -z "$1"]
+    for i in "$@"; do homelink $i; done
+    exit $?
+fi
+
 
 
 # bash
@@ -71,7 +77,7 @@ fi
 
 # lxterm
 if confirm lxterminal; then
-    homelink .config/lxterminal folder
+    homelink .config/lxterminal/lxterminal.conf
 fi
 
 # annoyances
