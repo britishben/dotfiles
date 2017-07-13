@@ -10,7 +10,7 @@ function homelink(){
         fi
     fi
     echo "linking $FILE $1"
-    ln -sfv "./$FILE" $HOME/$FILE
+    ln -sfv "`pwd`/$FILE" $HOME/$FILE
 }
 
 function confirm(){
@@ -22,12 +22,10 @@ function confirm(){
    fi
 }
 
-if [ -z "$1"]
-    for i in "$@"; do homelink $i; done
-    exit $?
-fi
-
-
+#if [ -z "$1" ]; then
+#    for i in "$@"; do homelink $i; done
+#    exit $?
+#fi
 
 # bash
 if confirm bash; then
