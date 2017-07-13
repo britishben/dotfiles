@@ -30,10 +30,8 @@ set spellfile=~/.vim/.vimspell.utf-8.add
 set encoding=utf-8
 set termencoding=utf-8
 set fileencoding=utf-8
-
 set ffs=unix
 
-let g:netrw_liststyle=3       "Nerdtree-style explorer mode
 runtime macros/matchit.vim    "Extended % matching if/else/etc
 
 """""""""""
@@ -56,7 +54,6 @@ nnoremap <C-h> <C-w>h
 """"""""""""
 " SEARCHES "
 """"""""""""
-
 set ignorecase            " Do case insensitive matching
 set smartcase             " Do smart case matching
 set incsearch             " Incremental search
@@ -73,6 +70,15 @@ if has("wildmenu")
         set wildignore+=.git\*,.hg\*,.svn\*
     endif
 endif
+
+"""""""""""""""""
+" NETRW EXPLORE "
+"""""""""""""""""
+let g:netrw_banner=0          "Show/Hide netrw banner
+let g:netrw_liststyle=3       "Nerdtree-style explorer mode
+let g:netrw_browsesplit=4     "Open file in previous window
+let g:netrw_altv=1            "Not sure what this does :P
+let g:netrw_winsize=25        "Percentage of window to take up
 
 """"""""""
 " REMAPS "
