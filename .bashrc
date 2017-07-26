@@ -74,6 +74,7 @@ alias gnew='git plog HEAD@{1}..HEAD@{0}' #see only latest commit
 
 ### svn aliases ###
 alias sup='svn update'
+alias scm='svn commit -m'
 
 ### git-svn aliases ###
 alias gsf='git svn fetch'
