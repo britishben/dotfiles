@@ -35,10 +35,8 @@ alias vc='vim ~/.conkyrc'
 alias rm='rm -iv' # safety first!
 alias cp='cp -v'
 alias mv='mv -v'
-alias bd='cd -' #undo a cd, basically
 alias cls='clear' #old dos habit
 alias lynx='elinks'
-#alias suroot='sudo -i' #Ubuntu doesn't trust me, not that it should
 alias ssr='sudo systemctl restart' #easily restart a service
 alias ds="du -aSh 2>/dev/null | sort -hr | head -n 25" #what is taking up space?
 alias ssa='eval `ssh-agent` && ssh-add'
@@ -53,14 +51,11 @@ alias acs='apt-cache search' #what's that package called?
 alias agi='sudo apt-get install' #ah, that's the one
 alias acp='apt-policy'
 
-function firefox() { command firefox "$@" & } #run firefox in background
 
-function up() { cd $(eval printf '../'%.0s {1..$1}) && pwd; } #up 4 goes up 4 directories
 
 ### git aliases ###
 alias ga='git add --patch' #doesn't work for initial commit of a file, need to use "git add"
 alias gax='git reset HEAD' #unstage a file easily
-#alias gc='git commit'     #never really used, gcm is much easier
 alias gco='git checkout'
 alias gb='git branch'
 alias gdu='git diff'       #what are the unstaged changes?
@@ -90,6 +85,11 @@ alias tma='tmux new-session -As'
 if [ -f /etc/bash_completion.d/tma ]; then
     . /etc/bash_completion.d/tma
 fi
+
+
+### functions ###
+
+function up() { cd $(eval printf '../'%.0s {1..$1}) && pwd; } #up 4 goes up 4 directories
 
 #alias wtf='cat /etc/*-release && hostname && whoami && pwd'
 function wtf() {
@@ -130,6 +130,10 @@ function unmark() {
     unset $1;
     printf "deleted $"$1"\n";
 }
+
+function firefox() { command firefox "$@" & } #run firefox in background
+
+#### EXPERIMENTAL ####
 
 function mkscript(){
     name=$1
