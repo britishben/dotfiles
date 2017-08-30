@@ -3,7 +3,7 @@
 """"""""""""
 " BOOLEANS "
 """"""""""""
-set nocompatible          " don't force vi compatability
+set nocompatible          " don't force vi compatability - useless?
 set history=10000         " how many lines vim should remember
 syntax enable             " enable syntax processing
 set mouse=a               " Enable mouse support in console
@@ -11,22 +11,14 @@ set visualbell            " Turn off sound
 set number                " show line numbers
 set showcmd               " show (partial) command in bottom bar
 set ruler                 " show cursor position
-set t_Co=256              " 256 colours
-set background=dark       " pick colours for dark backgrounds
 set autoread              " If a file is changed outside of vim, reload it without asking
 set lazyredraw            " redraw only when we need to (not during macros)
 set showmatch             " highlight matching [{()}]
 set autoindent            " indent newline to match previous line
-set expandtab             " turn <tab>s into spaces
 set smarttab              " turn <tab>s into indents at the beginning of a line
-set softtabstop=4         " keypress <tab> is 4 wide
-set tabstop=4             " existing <tab> is 4 wide
-set shiftwidth=4          " indent is 4 wide
 set scrolloff=3           " 3 lines of context on page scroll
-set nojoinspaces          " one space after punctuation
 set spelllang=en_gb       " use {set spell} to enable spellchecking
 set spellfile=~/.vim/.vimspell.utf-8.add
-
 set encoding=utf-8
 set termencoding=utf-8
 set fileencoding=utf-8
@@ -34,10 +26,21 @@ set ffs=unix
 
 runtime macros/matchit.vim    "Extended % matching if/else/etc
 
+""""""""""""""
+" WHITESPACE "
+""""""""""""""
+set expandtab             " turn <tab>s into spaces
+set nojoinspaces          " one space after punctuation
+set shiftwidth=4          " indent is 4 wide
+set softtabstop=4         " keypress <tab> is 4 wide
+set tabstop=4             " existing <tab> is 4 wide
+
 """""""""""
 " COLOURS "
 """""""""""
-colo desert
+colorscheme desert
+set background=dark       " pick colours for dark backgrounds
+set t_Co=256              " 256 colours
 
 """"""""""
 " SPLITS "
@@ -118,5 +121,5 @@ filetype plugin on            " Enable filetype-specific plugins
 autocmd FileType make set tabstop=8 shiftwidth=8 softtabstop=0 noexpandtab
 
 " Catch trailing whitespace
-set listchars=tab:>-,trail:·,eol:¶
+set listchars=tab:»-,trail:∙,nbsp:•,precedes:←,extends:→,eol:¶
 nmap <silent> <leader>s :set nolist!<CR>

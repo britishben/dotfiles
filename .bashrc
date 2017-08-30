@@ -44,7 +44,6 @@ alias cwd='printf "%q\n" "$(pwd)"' #shell-format pwd
 alias ed='ed -p:' #ed's command prompt is :
 alias ps?='ps alx | grep -v "grep" | grep' #bsd format ps search
 
-
 ### apt aliases ###
 alias sagu='sudo apt-get update && sudo apt-get upgrade' #I'm lazy
 alias acs='apt-cache search' #what's that package called?
@@ -70,6 +69,7 @@ alias gnew='git plog HEAD@{1}..HEAD@{0}' #see only latest commit
 ### svn aliases ###
 alias sup='svn update'
 alias scm='svn commit -m'
+alias sxm='svn propedit --revprop svn:log -r'
 
 ### git-svn aliases ###
 alias gsf='git svn fetch'

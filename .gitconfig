@@ -1,10 +1,23 @@
 [user]
-	name = Benjamin P. McKenna
-	email = britishben@gmail.com
-	
+    name = Benjamin P. McKenna
+    email = britishben@gmail.com
+
 [color]
     ui = auto
     pager = true
+
+[core]
+    editor = vim
+    excludesfile = ~/.gitignore
+
+[credential]
+    helper = cache --timeout=3600
+
+[github]
+    user = britishben
+
+[color]
+    ui = auto
 
 [color "branch"]
     current = yellow reverse
@@ -21,17 +34,13 @@
     added = green
     changed = blue
     deleted = red
-    
-[core]
-	editor = vim
-	excludesfile = ~/.gitignore
-	
+
 [diff]
-	tool = vimdiff
-	
+    tool = vimdiff
+
 [merge]
-	tool = vimdiff
-	
+    tool = vimdiff
+
 [url "https://github.com/"]
     insteadOf = gh:
 
@@ -43,14 +52,12 @@
 
 [url "https://bitbucket.org/"]
     insteadOf = bb:
-    
+
 [url "https://notabug.org/"]
     insteadOf = nab:
-    
-[alias]
-	ls = ls-files
-	plog = log --graph --abbrev-commit --date=relative --pretty=format:'%Cred%h%Creset %C(yellow)%d%Creset %C(cyan)%an%Creset -%s %Cgreen(%cr)'
-    co = checkout
 
-[credential]
-	helper = cache --timeout=3600
+[alias]
+    ls = ls-files
+    plog = log --graph --abbrev-commit --date=relative --pretty=format:'%Cred%h%Creset %C(yellow)%d%Creset %C(cyan)%an%Creset -%s %Cgreen(%cr)'
+    co = checkout
+    cm = commit -m
