@@ -40,17 +40,16 @@ alias lynx='elinks'
 alias ssr='sudo systemctl restart' #easily restart a service
 alias ds="du -aSh 2>/dev/null | sort -hr | head -n 25" #what is taking up space?
 alias ssa='eval `ssh-agent` && ssh-add'
-alias cwd='printf "%q\n" "$(pwd)"' #shell-format pwd
+alias cwd='printf "%q\n" "$PWD"' #shell-format pwd
 alias ed='ed -p:' #ed's command prompt is :
-alias ps?='ps alx | grep -v "grep" | grep' #bsd format ps search
+alias ps\?='ps alx | grep -v "grep" | grep' #bsd format ps search
+alias pls='sudo $(history -p \!\!)'
 
 ### apt aliases ###
 alias sagu='sudo apt-get update && sudo apt-get upgrade' #I'm lazy
 alias acs='apt-cache search' #what's that package called?
 alias agi='sudo apt-get install' #ah, that's the one
 alias acp='apt-policy'
-
-
 
 ### git aliases ###
 alias ga='git add --patch' #doesn't work for initial commit of a file, need to use "git add"
@@ -93,57 +92,70 @@ function up() { cd $(eval printf '../'%.0s {1..$1}) && pwd; } #up 4 goes up 4 di
 
 #alias wtf='cat /etc/*-release && hostname && whoami && pwd'
 function wtf() {
-    printf "\n$USER @ $HOSTNAME running $OS" && uname -mrs;
-    printf "Home directory: "$HOME"\n";
-    printf "Current directory: "$PWD"\n";
-    more /etc/*-rel* /etc/*_ver* | cat;
-    printf "\n";
+    echo
+    echo "$USER @ $HOSTNAME running $OS" && uname -mrs
+    echo "Home directory: $HOME"
+    echo "Current directory: $PWD"
+    more /etc/*-rel* /etc/*_ver* | cat
+    echo
 }
 
-#extract most types of files
+#extract most types of files based on extension
 function extract() {
-    if [ -f $1 ] ; then
-         case $1 in
-             *.tar.bz2|*.tbz2)  tar xvjf $1     ;;
-             *.tar.gz|*.tgz)    tar xvzf $1     ;;
-             *.bz2)             bunzip2 $1      ;;
-             *.rar)             unrar x $1      ;;
-             *.gz)              gunzip $1       ;;
-             *.tar)             tar xvf $1      ;;
-             *.zip)             unzip $1        ;;
-             *.Z)               uncompress $1   ;;
-             *.7z)              7z x $1         ;;
-             *.lzma)            unlzma $1       ;;
-             *)                 echo "'$1' cannot be extracted via >extract<" ;;
-         esac
-     else
-         echo "'$1' is not a valid file!"
-     fi
+    programs="tar bzip2 lzip unxz bunzip2 lbzip2 gunzip unrar unlzma unzip uncompress 7z"
+    if [ -f "$1" ] ; then
+        case "$1" in
+            *.tar.gz|*.tgz|*.taz)          tar xvzf "$1"          ;;
+            *.tar.Z|*.taZ)                 tar xvZf "$1"          ;;
+            *.tar.bz2|*.tz2|*.tbz2|*.tbz)
+                if [ -x "$(command -v lbzip2)" ]; then
+                    tar --use=lbzip2 xvf "$1"
+                else
+                    tar xvjf "$1"
+                fi  ;;
+            *.tar.xz|*.txz)                tar xvJf "$1"          ;;
+            *.tar.lzma|*.tlz)              tar --lzma xvf "$1"    ;;
+            *.tar.lzop)                    tar --lzop xvf "$1"    ;;
+            *.tar.lz)                      tar --lzip xvf "$1"    ;;
+            *.tar)                         tar xvf "$1"           ;;
+            *.bz2)             bunzip2 "$1"     ;;
+            *.gz)              gunzip "$1"      ;;
+            *.rar)             unrar x "$1"     ;;
+            *.lzma)            unlzma "$1"      ;;
+            *.xz)              unxz "$1"        ;;
+            *.zip)             unzip "$1"       ;;
+            *.7z)              7z x "$1"        ;;
+            *.Z)               uncompress "$1"  ;;
+            *)                 echo "'$1' cannot be extracted via >extract<" ;;
+        esac
+    elif [ "$1" = "help" ]; then
+        type -a $programs
+    else
+        echo "'$1' is not a valid filename"
+    fi
 }
 
 #bookmark a directory
 function mark() {
-    export $1="`cwd`";
-    printf "saved as $"$1"\n";
+    export "$1"="$(printf '%q' "$PWD")"
+    printf 'saved as $%s\n' "$1"
 }
 function unmark() {
-    unset $1;
-    printf "deleted $"$1"\n";
+    unset "$1"
+    printf 'deleted $%s\n' "$1"
 }
-
-function firefox() { command firefox "$@" & } #run firefox in background
 
 #### EXPERIMENTAL ####
 
 function mkscript(){
     name=$1
-    touch $name.sh
+    touch "$name".sh
 
-    echo "#!`which bash`"
+    echo "#!$(command -v bash)"
     echo "set -eu #safety line"
     echo "#$name.sh - written by bpm"
 
-    chmod +x $name.sh
+    chmod +x "$name".sh
 }
 
 ###SSH-AGENT###
