@@ -151,9 +151,12 @@ function mkscript(){
     name=$1
     touch "$name".sh
 
-    echo "#!$(command -v bash)"
-    echo "set -eu #safety line"
-    echo "#$name.sh - written by bpm"
+cat > "$name.sh" << EOT
+#!$(command -v bash)
+set -eu #safety line
+#$name.sh - written by bpm
+
+EOT
 
     chmod +x "$name".sh
 }
