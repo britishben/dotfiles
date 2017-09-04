@@ -64,8 +64,8 @@ set incsearch             " Incremental search
 if has("wildmenu")
     set wildmenu
     set wildmode=list:longest
-    set wildignore=*.o,*.a,*.pyc " ignore compiled files
-    set wildignore+=*.swp,*.tmp,*~ " ignore temp files
+    set wildignore=*.o,*.a,*.pyc                  " ignore compiled files
+    set wildignore+=*.swp,*.tmp,*~                " ignore temp files
     set wildignore+=*.png,*.jpg,*.gif,*.bmp,*.ico " ignore images
     if has("win16") || has("win32")
         set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
@@ -88,14 +88,15 @@ let g:netrw_winsize=25        "Percentage of window to take up
 """"""""""
 
 "\ev opens this file.
-:nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+:nnoremap <leader>ev :split $MYVIMRC<cr>
 "\sv reloads this config.
 :nnoremap <leader>sv :source $MYVIMRC<cr>
 
-"inoremap jk <esc>   " make jk quit insert mode
-
 " Y yanks to the end of the line, not the whole line.
 :nnoremap Y y$
+
+"Shift-Tab to get a real \t
+:inoremap <S-Tab> <C-V><Tab>
 
 """""""""""""""""
 " ABBREVIATIONS "
