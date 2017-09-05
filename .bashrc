@@ -31,6 +31,7 @@ shopt -s checkwinsize
 ### aliases ###
 alias vb='vim ~/.bashrc'
 alias rb='source ~/.bashrc'
+alias vv='vim ~/.vimrc'
 alias vc='vim ~/.conkyrc'
 alias rm='rm -iv' # safety first!
 alias cp='cp -v'
@@ -39,7 +40,7 @@ alias cls='clear' #old dos habit
 alias lynx='elinks'
 alias ssr='sudo systemctl restart' #easily restart a service
 alias ds="du -aSh 2>/dev/null | sort -hr | head -n 25" #what is taking up space?
-alias ssa='eval `ssh-agent` && ssh-add'
+#alias ssa='eval `ssh-agent` && ssh-add'
 alias cwd='printf "%q\n" "$PWD"' #shell-format pwd
 alias ed='ed -p:' #ed's command prompt is :
 alias ps\?='ps alx | grep -v "grep" | grep' #bsd format ps search
