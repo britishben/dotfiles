@@ -103,34 +103,69 @@ function wtf() {
 
 #extract most types of files based on extension
 function extract() {
-    programs="tar bzip2 lzip unxz bunzip2 lbzip2 gunzip unrar unlzma unzip uncompress 7z"
+    programs="tar lzip xz bzip2 lbzip2 pbzip2 gzip pigz plzip unrar unlzma unzip uncompress 7z"
     if [ -f "$1" ] ; then
         case "$1" in
-            *.tar.gz|*.tgz|*.taz)          tar xvzf "$1"          ;;
-            *.tar.Z|*.taZ)                 tar xvZf "$1"          ;;
+            *.tar.gz|*.tgz|*.taz)
+                if [ -x "$(command -v pigz)" ]; then
+                    tar -I=pigz -xvf "$1"
+                else
+                    tar -xvzf "$1";
+                fi  ;;
             *.tar.bz2|*.tz2|*.tbz2|*.tbz)
                 if [ -x "$(command -v lbzip2)" ]; then
-                    tar --use=lbzip2 xvf "$1"
+                    tar -I=lbzip2 -xvf "$1"
+                elif [ -x "$(command -v pbzip2)" ]; then
+                    tar -I=pbzip2 -xvf "$1"
                 else
-                    tar xvjf "$1"
+                    tar -xvjf "$1"
                 fi  ;;
-            *.tar.xz|*.txz)                tar xvJf "$1"          ;;
-            *.tar.lzma|*.tlz)              tar --lzma xvf "$1"    ;;
-            *.tar.lzop)                    tar --lzop xvf "$1"    ;;
-            *.tar.lz)                      tar --lzip xvf "$1"    ;;
-            *.tar)                         tar xvf "$1"           ;;
-            *.bz2)             bunzip2 "$1"     ;;
-            *.gz)              gunzip "$1"      ;;
-            *.rar)             unrar x "$1"     ;;
-            *.lzma)            unlzma "$1"      ;;
-            *.xz)              unxz "$1"        ;;
-            *.zip)             unzip "$1"       ;;
-            *.7z)              7z x "$1"        ;;
-            *.Z)               uncompress "$1"  ;;
-            *)                 echo "'$1' cannot be extracted via >extract<" ;;
+            *.tar.Z|*.taZ)                 tar -xvZf "$1"          ;;
+            *.tar.xz|*.txz)                tar -xvJf "$1"          ;;
+            *.tar.lzma|*.tlz)              tar --lzma -xvf "$1"    ;;
+            *.tar.lzop)                    tar --lzop -xvf "$1"    ;;
+            *.tar.lz)
+                if [ -x "$(command -v plzip)" ]; then
+                    tar -I=plzip -xvf "$1"
+                else
+                    tar --lzip xvf "$1"
+                fi  ;;
+            *.tar)   tar -xvf "$1"
+                ;;
+                ## done with tar options ##
+
+            *.gz)
+                if [ -x "$(command -v pigz)" ]; then
+                    pigz -d "$1"
+                else
+                    gzip -d "$1"
+                fi  ;;
+            *.bz2)
+                if [ -x "$(command -v lbzip2)" ]; then
+                    lbzip2 -d "$1"
+                elif [ -x "$(command -v pbzip2)" ]; then
+                    pbzip2 -d "$1"
+                else
+                    bzip2 -d "$1"
+                fi ;;
+            *.rar)   unrar x "$1"     ;;
+            *.lzma)  unlzma "$1"      ;;
+            *.xz)    unxz "$1"        ;;
+            *.zip)   unzip "$1"       ;;
+            *.7z)    7z x "$1"        ;;
+            *.Z)     uncompress "$1"  ;;
+            *)       echo "'$1' cannot be extracted via >extract<" ;;
         esac
     elif [ "$1" = "help" ]; then
-        type -a $programs
+        #type -a $programs
+        for p in $programs; do
+            printf "$p: "
+            if [ $(command -v $p) ]; then
+                echo $(readlink -f $(command -v $p))
+            else
+                echo "Not Found"
+            fi
+        done
     else
         echo "'$1' is not a valid filename"
     fi
