@@ -83,6 +83,9 @@ let g:netrw_browsesplit=4     "Open file in previous window
 let g:netrw_altv=1            "Not sure what this does :P
 let g:netrw_winsize=25        "Percentage of window to take up
 
+"Open with \ex
+:nnoremap <leader>ex :Vex<cr>
+
 """"""""""
 " REMAPS "
 """"""""""
@@ -92,7 +95,7 @@ let g:netrw_winsize=25        "Percentage of window to take up
 "\sv reloads this config.
 :nnoremap <leader>sv :source $MYVIMRC<cr>
 
-" Y yanks to the end of the line, not the whole line.
+"Y yanks to the end of the line, not the whole line.
 :nnoremap Y y$
 
 "Shift-Tab to get a real \t
@@ -121,6 +124,6 @@ filetype plugin on            " Enable filetype-specific plugins
 " Use actual tab chars in Makefiles.
 autocmd FileType make set tabstop=8 shiftwidth=8 softtabstop=0 noexpandtab
 
-" Catch trailing whitespace
+" Catch trailing whitespace with \s
 set listchars=tab:»-,trail:∙,nbsp:•,precedes:←,extends:→,eol:¶
 nmap <silent> <leader>s :set nolist!<CR>
