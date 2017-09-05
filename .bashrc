@@ -88,7 +88,7 @@ fi
 
 ### functions ###
 
-function up() { cd $(eval printf '../'%.0s {1..$1}) && pwd; } #up 4 goes up 4 directories
+function up() { cd "$(eval printf '../'%.0s {1..$1})" && pwd; } #up 4 goes up 4 directories
 
 #alias wtf='cat /etc/*-release && hostname && whoami && pwd'
 function wtf() {
@@ -143,6 +143,18 @@ function mark() {
 function unmark() {
     unset "$1"
     printf 'deleted $%s\n' "$1"
+}
+
+#unroll a link
+function unroll(){
+    FILE="$1"
+
+    while
+        echo "$FILE"
+        [ -L "$FILE" ]
+        FILE=$(readlink "$FILE")
+    do continue; #do-while loop
+    done
 }
 
 #### EXPERIMENTAL ####
