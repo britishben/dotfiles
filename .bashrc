@@ -21,7 +21,7 @@ PS1='\u@\h(\l):\W \$ ' #basic prompt, make fancy later.
 alias ls='ls --color=auto' #I'm counting this as an option, it really should be
 export HISTFILESIZE=100000
 export HISTSIZE=100000
-export HISTTIMEFORMAT="%d/%m/%y %T "
+export HISTTIMEFORMAT="%F %T(%Z) "
 export HISTCONTROL=ignoreboth  #ignore duplicates, and lines starting with space
 export HISTIGNORE=ls:pwd:exit:clear:cls
 export LESS="-iMFXR" # ignore case, long prompt, exit if it fits on one screen, allow colors for ls and grep colours
