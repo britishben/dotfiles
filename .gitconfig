@@ -58,6 +58,7 @@
 
 [alias]
     ls = ls-files
-    plog = log --graph --abbrev-commit --date=relative --pretty=format:'%Cred%h%Creset %C(yellow)%d%Creset %C(cyan)%an%Creset -%s %Cgreen(%cr)'
+    plog = log --graph --pretty=format:'%C(auto,red)%h%Creset %C(auto,magenta)%G?%Creset%C(auto,yellow)% d%Creset %C(auto,cyan)%aN%Creset: %s %C(auto,green)(%cr)%Creset'
+    slog = log --date=format:'%F %T %z (%a, %d %b %Y)' --pretty=format:'------------------------------------------------------------------------%nr:%h | %an | %cd | line%n%n%-s%n%nChanged paths:' --name-status
     co = checkout
     cm = commit -m

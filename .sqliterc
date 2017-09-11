@@ -1,12 +1,7 @@
+--BPM's .sqliterc
+
 .header on
 .timer on
 .separator | \n
---COL ROW
+--separator COL ROW
 .mode list
-
---.output stderr
---PRAGMA cache_size = -500000;
---PRAGMA foreign_keys = ON;
---PRAGMA locking_mode = EXCLUSIVE;
---PRAGMA synchronous = OFF;
---.output stdout
