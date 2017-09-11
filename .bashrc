@@ -10,7 +10,7 @@ if [ -z "$PROMPT_COMMAND" ]; then
     PROMPT_COMMAND='printf "\033]0;%s@%s:%s\033\\" "${USER}" "${HOSTNAME%%.*}" "${PWD/#$HOME/~}"'
 fi #sets window title
 
-PS1='\u@\h(\l):\W \$ ' #basic prompt, make fancy later. 
+PS1='\u@\h(\l):\W \$ ' #basic prompt, make fancy later.
 
 ### PATH ###
 #PATH="$HOME/dotfiles/scripts:${PATH}"
@@ -196,13 +196,15 @@ function unroll(){
 
 #list files with trailing whitespace
 function wsc(){
-    grep --binary-files=without-match -crP '\s+$' -- | grep -v ':0$' | awk -F':' '{print $2":"$1}' | sort -nr
+    grep --binary-files=without-match -crP '\s+$' -- | \
+        grep -v ':0$' | grep -v '.git/' | \
+        awk -F':' '{print $2":"$1}' | sort -nr
 }
 
 #### EXPERIMENTAL ####
 
 function mkscript(){
-    name="$1"
+    name="${1:-newscript}"
     touch "$name".sh
 
     cat > "$name.sh" << EOT
