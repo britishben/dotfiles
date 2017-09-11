@@ -184,7 +184,7 @@ function unmark() {
 
 #unroll a link
 function unroll(){
-    FILE="$1"
+    local FILE="$1"
 
     while
         echo "$FILE"
@@ -192,6 +192,11 @@ function unroll(){
         FILE=$(readlink "$FILE")
     do continue; #do-while loop
     done
+}
+
+#list files with trailing whitespace
+function wsc(){
+    grep --binary-files=without-match -crP '\s+$' -- | grep -v ':0$' | awk -F':' '{print $2":"$1}' | sort -nr
 }
 
 #### EXPERIMENTAL ####
