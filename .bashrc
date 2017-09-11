@@ -24,7 +24,7 @@ export HISTSIZE=100000
 export HISTTIMEFORMAT="%F %T(%Z) "
 export HISTCONTROL=ignoreboth  #ignore duplicates, and lines starting with space
 export HISTIGNORE=ls:pwd:exit:clear:cls
-export LESS="-iMFXR" # ignore case, long prompt, exit if it fits on one screen, allow colors for ls and grep colours
+export LESS="-iMFXR" # ignore case, long prompt, exit if it fits on one screen, don't clear on quit, allow colors
 export EDITOR=vim
 export LANG="en_GB.utf8"
 shopt -s checkwinsize

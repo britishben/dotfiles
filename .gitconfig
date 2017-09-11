@@ -8,6 +8,7 @@
 
 [core]
     editor = vim
+    pager = less
     excludesfile = ~/.gitignore
 
 [credential]
@@ -58,6 +59,7 @@
 
 [alias]
     ls = ls-files
+    #cat = cat-file
     plog = log --graph --pretty=format:'%C(auto,red)%h%Creset %C(auto,magenta)%G?%Creset%C(auto,yellow)% d%Creset %C(auto,cyan)%aN%Creset: %s %C(auto,green)(%cr)%Creset'
     slog = log --date=format:'%F %T %z (%a, %d %b %Y)' --pretty=format:'------------------------------------------------------------------------%nr:%h | %an | %cd | line%n%n%-s%n%nChanged paths:' --name-status
     co = checkout
