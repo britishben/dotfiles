@@ -1,4 +1,8 @@
 #!/bin/sh
 
-WISH_SCRIPT="wm state . withdrawn; tk_messageBox -icon info -type ok -title \"Loading...\" -message \"Loading: ${1}\"; exit"
-echo "$WISH_SCRIPT" | wish
+
+WISH_SCRIPT="wm state . withdrawn; tk_messageBox -icon info -title \"Loading...\" -message \"Loading: ${1}\"; exit"
+
+echo "$WISH_SCRIPT" | wish &
+sleep 2
+killall wish
