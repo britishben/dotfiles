@@ -13,8 +13,8 @@ fi #sets window title
 PS1='\u@\h(\l):\W \$ ' #basic prompt, make fancy later.
 
 ### PATH ###
-#PATH="$HOME/dotfiles/scripts:${PATH}"
-#export PATH
+export GOPATH="$HOME/go"
+#export PATH="$HOME/dotfiles/scripts:${PATH}:$GOPATH/bin"
 
 ### options ###
 #export GREP_OPTIONS='--color=auto' #apparently deprecated
@@ -87,6 +87,8 @@ if [ -f /etc/bash_completion.d/tma ]; then
     . /etc/bash_completion.d/tma
 fi
 
+### go aliases ###
+function gocd() { cd "$(go list -f '{{.Dir}}' "$1")"; }
 
 ### functions ###
 
@@ -160,9 +162,9 @@ function extract() {
     elif [ "$1" = "help" ]; then
         #type -a $programs
         for p in $programs; do
-            printf "$p: "
-            if [ $(command -v $p) ]; then
-                echo $(readlink -f $(command -v $p))
+            printf "%s: " "$p"
+            if [ "$(command -v "$p")" ]; then
+                readlink -f "$(command -v "$p")"
             else
                 echo "Not Found"
             fi

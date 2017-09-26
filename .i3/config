@@ -31,7 +31,7 @@ bindsym $mod+d exec dmenu_run
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 #bindsym $mod+e exec firefox
-bindsym $mod+e exec ~/.i3/popup Firefox & firefox
+bindsym $mod+e exec ~/.i3/popup firefox & firefox
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
