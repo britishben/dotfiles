@@ -222,11 +222,18 @@ EOT
     if [ "${2:-false}" == "options" ]; then
 
         cat >> "$name.sh" << EOT
+usage(){
+    cat<<EOU
+Usage: \$0 [options] <args>
 
-USAGE="Usage: $name.sh -ihv args"
+Options:
+    -h          Show this screen
+    -v          Show version
+    -i <arg>    First option
+EOU
 
 if [ \$# == 0 ] ; then
-    echo \$USAGE
+    usage
     exit 1;
 fi
 
@@ -241,30 +248,31 @@ do
             echo "-i argument: \$OPTARG"
             ;;
         "h")
-            echo \$USAGE
+            usage
             exit 0;
             ;;
         "?")
             echo "Unknown option \$OPTARG"
-            exit 0;
+            exit 1;
             ;;
         ":")
             echo "No argument value for option \$OPTARG"
-            exit 0;
+            exit 1;
             ;;
         *)
             echo "Unknown error while processing options"
-            exit 0;
+            exit 1;
             ;;
     esac
 done
 
-shift \$((\$OPTIND - 1))
+shift \$((OPTIND - 1))
 
 EOT
     fi
 
     chmod +x "$name".sh
+    vi "$name".sh
 }
 
 ###SSH-AGENT###
