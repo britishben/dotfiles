@@ -127,3 +127,6 @@ autocmd FileType make set tabstop=8 shiftwidth=8 softtabstop=0 noexpandtab
 " Catch trailing whitespace with \s
 set listchars=tab:»-,trail:∙,nbsp:•,precedes:←,extends:→,eol:¶
 nmap <silent> <leader>s :set nolist!<CR>
+
+" sudo write
+ca w!! w !sudo tee >/dev/null "%"
