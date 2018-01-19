@@ -92,7 +92,7 @@ function gocd() { cd "$(go list -f '{{.Dir}}' "$1")"; }
 
 ### functions ###
 
-function up() { cd "$(eval printf '../'%.0s {1..$1})" && pwd; } #up 4 goes up 4 directories
+function up() { cd "$(printf '../'%.0s $(seq 1 $1))" && pwd; } #up 4 goes up 4 directories
 
 #alias wtf='cat /etc/*-release && hostname && whoami && pwd'
 function wtf() {
