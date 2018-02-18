@@ -203,6 +203,29 @@ function wsc(){
         awk -F':' '{print $2":"$1}' | sort -nr
 }
 
+###SSH-AGENT###
+
+SSH_ENV="$HOME/.ssh/environment"
+
+function start_agent {
+    printf "Initialising new SSH agent..."
+    /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
+    echo "succeeded"
+    chmod 600 "${SSH_ENV}"
+    source "${SSH_ENV}"
+    /usr/bin/ssh-add;
+}
+
+: "${SSH_AGENT_PID:=$(pgrep ssh-agent)}"
+if [ -z "${SSH_AUTH_SOCK}" ]; then
+    if [ -f "${SSH_ENV}" ]; then
+        source "${SSH_ENV}"
+    fi
+    if ! ( ps -q "${SSH_AGENT_PID:=$(pgrep ssh-agent)}" > /dev/null ); then
+        start_agent;
+    fi
+fi
+
 #### EXPERIMENTAL ####
 
 function mkscript(){
@@ -274,28 +297,5 @@ EOT
     chmod +x "$name".sh
     vi "$name".sh
 }
-
-###SSH-AGENT###
-
-SSH_ENV="$HOME/.ssh/environment"
-
-function start_agent {
-    printf "Initialising new SSH agent..."
-    /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
-    echo "succeeded"
-    chmod 600 "${SSH_ENV}"
-    source "${SSH_ENV}"
-    /usr/bin/ssh-add;
-}
-
-: "${SSH_AGENT_PID:=$(pgrep ssh-agent)}"
-if [ -z "${SSH_AUTH_SOCK}" ]; then
-    if [ -f "${SSH_ENV}" ]; then
-        source "${SSH_ENV}"
-    fi
-    if ! ps -q "${SSH_AGENT_PID:=$(pgrep ssh-agent)}"; then
-        start_agent;
-    fi
-fi
 
 ###EOF###
