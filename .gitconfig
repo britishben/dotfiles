@@ -64,3 +64,5 @@
     slog = log --date=format:'%F %T %z (%a, %d %b %Y)' --pretty=format:'------------------------------------------------------------------------%nr:%h | %an | %cd | line%n%n%-s%n%nChanged paths:' --name-status
     co = checkout
     cm = commit -m
+[push]
+	default = simple
