@@ -69,7 +69,7 @@ mode "resize" {
         bindsym k resize shrink height 10 px or 10 ppt
         bindsym l resize grow width 10 px or 10 ppt
         
-	bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Left resize shrink width 10 px or 10 ppt
         bindsym Down resize grow height 10 px or 10 ppt
         bindsym Up resize shrink height 10 px or 10 ppt
         bindsym Right resize grow width 10 px or 10 ppt
@@ -159,5 +159,6 @@ bar {
 #borders
 #new_window none
 
-#exec --no-startup-id nitrogen --restore
+exec --no-startup-id vmware-user-suid-wrapper
+exec --no-startup-id nitrogen --restore
 #bindsym Mod4+l exec i3lock
