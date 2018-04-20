@@ -90,9 +90,10 @@ if [ -f /etc/bash_completion.d/tma ]; then
 fi
 
 ### go aliases ###
-function gocd() { cd "$(go list -f '{{.Dir}}' "$1")"; }
+function gocd() { cd "$(go list -f '{{.Dir}}' "$1")" || echo "$1 not found in $GOPATH"; }
 
 ### functions ###
+
 function up() { cd "$(printf '../'%.0s $(seq 1 "$1"))" && pwd; } #up 4 goes up 4 directories
 
 #alias wtf='cat /etc/*-release && hostname && whoami && pwd'

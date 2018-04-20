@@ -20,6 +20,8 @@ sed -i '/Shop this shows fashion, download the/d; /"LookLive" app in iTunes/d' "
 sed -i '/Support us and become VIP member /d; /to remove all ads from www.OpenSubtitles.org/d' "*.en.srt"
 #gts-translation
 sed -i '/Professional Translation Services/d; /www.gts-translation.com/d' "*.en.srt"
+#americas-cardroom
+sed -i '/AmericasCardroom.com brings poker back/d; /Million Dollar Sunday Tournament every Sunday/d' "*.en.srt"
 ###
 
 ### DUTCH ###
