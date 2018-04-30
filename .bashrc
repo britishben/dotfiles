@@ -71,6 +71,8 @@ alias gnew='git plog HEAD@{1}..HEAD@{0}' #see only latest commit
 alias sup='svn update'
 alias scm='svn commit -m'
 alias sxm='svn propedit --revprop svn:log -r'
+alias sd='svn diff'
+function sld(){ svn log --diff $1 | less }
 
 ### git-svn aliases ###
 alias gsf='git svn fetch'
@@ -91,13 +93,12 @@ fi
 function gocd() { cd "$(go list -f '{{.Dir}}' "$1")"; }
 
 ### functions ###
-
 function up() { cd "$(printf '../'%.0s $(seq 1 $1))" && pwd; } #up 4 goes up 4 directories
 
 #alias wtf='cat /etc/*-release && hostname && whoami && pwd'
 function wtf() {
     echo
-    echo "$USER @ $HOSTNAME running $OS" && uname -mrs
+    echo "${USER:=$(whoami)} @ ${HOSTNAME:=$(hostname)} running ${OS:=$(uname -mrs)}"
     echo "Home directory: $HOME"
     echo "Current directory: $PWD"
     more /etc/*-rel* /etc/*_ver* /etc/issue | cat
