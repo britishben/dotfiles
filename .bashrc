@@ -72,7 +72,7 @@ alias sup='svn update'
 alias scm='svn commit -m'
 alias sxm='svn propedit --revprop svn:log -r'
 alias sd='svn diff'
-function sld(){ svn log --diff $1 | less }
+function sld(){ svn log --diff $1 | less; }
 
 ### git-svn aliases ###
 alias gsf='git svn fetch'
