@@ -5,11 +5,8 @@ set $mod Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. 
-font pango:monospace 8
-
-#This font is widely installed, provides lots of unicode glyphs, right-to-left
-#text rendering and scalability on retina/hidpi displays (thanks to pango).
-#font pango:DejaVu Sans Mono 8
+font pango:DejaVu Sans Mono 8
+#font pango:Terminus 8
 
 #don't make the focus follow your mouse cursor
 focus_follows_mouse no
@@ -66,10 +63,26 @@ mode "resize" {
     bindsym k resize shrink height  10 px or 10 ppt
     bindsym l resize grow   width   10 px or 10 ppt
 
-    bindsym Left resize shrink  width   10 px or 10 ppt
-    bindsym Down resize grow    height  10 px or 10 ppt
-    bindsym Up resize shrink    height  10 px or 10 ppt
+    bindsym Left  resize shrink width   10 px or 10 ppt
+    bindsym Down  resize grow   height  10 px or 10 ppt
+    bindsym Up    resize shrink height  10 px or 10 ppt
     bindsym Right resize grow   width   10 px or 10 ppt
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+bindsym $mod+Shift+r mode "fineresize"
+mode "fineresize" {
+    bindsym h resize shrink width   1 px or 1 ppt
+    bindsym j resize grow   height  1 px or 1 ppt
+    bindsym k resize shrink height  1 px or 1 ppt
+    bindsym l resize grow   width   1 px or 1 ppt
+
+    bindsym Left  resize shrink width   1 px or 1 ppt
+    bindsym Down  resize grow   height  1 px or 1 ppt
+    bindsym Up    resize shrink height  1 px or 1 ppt
+    bindsym Right resize grow   width   1 px or 1 ppt
 
     bindsym Return mode "default"
     bindsym Escape mode "default"
