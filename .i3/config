@@ -172,5 +172,6 @@ bar {
 #borders
 #new_window none
 
-exec --no-startup-id 'vmware-user-suid-wrapper; nitrogen --restore'
+exec --no-startup-id 'vmware-user-suid-wrapper'
+exec --no-startup-id 'sleep 5; nitrogen --restore'
 #bindsym Mod4+l exec i3lock
