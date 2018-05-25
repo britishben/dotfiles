@@ -72,8 +72,8 @@ alias sup='svn update'
 alias scm='svn commit -m'
 alias sxm='svn propedit --revprop svn:log -r'
 alias sd='svn diff'
-function slv(){ svn log -v $1 | less; }
-function sld(){ svn log --diff $1 | less; }
+function slv(){ svn log -v $* | less; }
+function sld(){ svn log --diff $* | less; }
 
 ### git-svn aliases ###
 alias gsf='git svn fetch'
@@ -96,7 +96,7 @@ function gocd() { cd "$(go list -f '{{.Dir}}' "$1")" || echo "$1 not found in $G
 ### functions ###
 
 function up() { cd "$(printf '../'%.0s $(seq 1 "${1:-1}"))" && pwd; } #up 4 goes up 4 directories
-function mol(){ more $1 | less; } #more or less - I basically just want more's filename seperators
+function mol(){ more $* | less; } #more or less - I basically just want more's filename seperators
 
 #alias wtf='cat /etc/*-release && hostname && whoami && pwd'
 function wtf() {
