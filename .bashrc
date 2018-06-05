@@ -10,7 +10,7 @@ if [ -z "$PROMPT_COMMAND" ]; then
     PROMPT_COMMAND='printf "\033]0;%s@%s:%s\033\\" "${USER}" "${HOSTNAME%%.*}" "${PWD/#$HOME/~}"'
 fi #sets window title
 
-PS1='\u@\h(\l):\W \$ ' #basic prompt, make fancy later.
+export PS1='\u@\h(\l):\W \$ ' #basic prompt, make fancy later.
 
 ### PATH ###
 export GOPATH="$HOME/go"
@@ -41,7 +41,6 @@ alias cls='clear' #old dos habit
 alias lynx='elinks'
 alias ssr='sudo systemctl restart' #easily restart a service
 alias ds="du -aSh 2>/dev/null | sort -hr | head -n 25" #what is taking up space?
-#alias ssa='eval `ssh-agent` && ssh-add'
 alias cwd='printf "%q\n" "$PWD"' #shell-format pwd
 alias ed='ed -p:' #ed's command prompt is :
 alias ps\?='ps alx | grep -v "grep" | grep' #bsd format ps search
