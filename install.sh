@@ -3,23 +3,23 @@
 
 function homelink(){
     FILE=$1; shift;
-    if [ -f ~/$FILE ]; then
+    if [ -f ~/"$FILE" ]; then
         printf "File Exists! "
-        if ! confirm $FILE; then
+        if ! confirm "$FILE"; then
             return 1;
         fi
     fi
     echo "linking $FILE $1"
-    ln -sfv "`pwd`/$FILE" $HOME/$FILE
+    ln -sfv "$PWD/$FILE" "$HOME/$FILE"
 }
 
 function confirm(){
-   NAME=$1; shift;
-   read -p "Would you like to install $NAME? (y/n): " VALUE
-   if [[ $VALUE == 'y' ]]; then return 0;
-   elif [[ $VALUE == 'q' ]]; then exit;
-   else return 1;
-   fi
+    NAME=$1; shift;
+    read -p "Would you like to install $NAME? (y/n): " VALUE
+    if [[ $VALUE == 'y' ]]; then return 0;
+    elif [[ $VALUE == 'q' ]]; then exit;
+    else return 1;
+    fi
 }
 
 #if [ -z "$1" ]; then
@@ -41,12 +41,7 @@ fi
 # tmux
 if confirm tmux; then
     homelink .tmux.conf
-    if [ -f ~/$FILE ]; then
-        printf "File Exists! "
-        if confirm $FILE; then
-            ln -sfv ./tma "/etc/bash_completion.d/tma"
-        fi
-    else
+    if [ ! -f "/etc/bash_completion.d/tma" ]; then
         ln -sfv ./tma "/etc/bash_completion.d/tma"
     fi
 fi

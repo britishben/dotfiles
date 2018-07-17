@@ -47,10 +47,10 @@ alias ps\?='ps alx | grep -v "grep" | grep' #bsd format ps search
 alias pls='sudo $(history -p \!\!)'
 
 ### apt aliases ###
-alias sagu='sudo apt-get update && sudo apt-get upgrade' #I'm lazy
+alias sagu='sudo apt-get update && sudo apt full-upgrade && sudo apt autoremove' #I'm lazy
 alias acs='apt-cache search' #what's that package called?
 alias agi='sudo apt-get install' #ah, that's the one
-alias acp='apt-policy'
+alias acp='apt-cache policy'
 
 ### git aliases ###
 alias ga='git add --patch' #doesn't work for initial commit of a file, need to use "git add"
