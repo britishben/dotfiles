@@ -173,5 +173,5 @@ bar {
 #new_window none
 
 exec --no-startup-id 'vmware-user-suid-wrapper'
-exec --no-startup-id 'sleep 5; nitrogen --restore'
+#exec --no-startup-id 'feh --bg-scale ~/galaxy.jpg'
 #bindsym Mod4+l exec i3lock
