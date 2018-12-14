@@ -4,7 +4,7 @@
 " BOOLEANS "
 """"""""""""
 set nocompatible          " don't force vi compatability - useless?
-set history=10000         " how many lines vim should remember
+set history=500           " how many lines vim should remember
 syntax enable             " enable syntax processing
 set mouse=a               " Enable mouse support in console
 set visualbell            " Turn off sound
@@ -17,6 +17,7 @@ set showmatch             " highlight matching [{()}]
 set autoindent            " indent newline to match previous line
 set smarttab              " turn <tab>s into indents at the beginning of a line
 set scrolloff=3           " 3 lines of context on page scroll
+set sidescrolloff=3       " 3 characters margin when scrolling right
 set spelllang=en_gb       " use {set spell} to enable spellchecking
 set spellfile=~/.vim/.vimspell.utf-8.add
 set encoding=utf-8
@@ -101,6 +102,20 @@ let g:netrw_winsize=25        "Percentage of window to take up
 "Shift-Tab to get a real \t
 :inoremap <S-Tab> <C-V><Tab>
 
+"Return clears Search
+":nnoremap <cr> :noh<cr><cr>
+":nnoremap <cr> :let @/ = ""
+
+"""""""""""""
+" OVERRIDES "
+"""""""""""""
+
+" Use actual tab chars in Makefiles.
+autocmd FileType make set tabstop=8 shiftwidth=8 softtabstop=0 noexpandtab
+
+" Handle Vue plugins
+autocmd BufNewFile,BufRead *.vue set filetype=javascript
+
 """""""""""""""""
 " ABBREVIATIONS "
 """""""""""""""""
@@ -120,9 +135,6 @@ iabbrev @@  britishben@gmail.com
 filetype on                   " Enable filetype detection
 filetype indent on            " Enable filetype-specific indenting
 filetype plugin on            " Enable filetype-specific plugins
-
-" Use actual tab chars in Makefiles.
-autocmd FileType make set tabstop=8 shiftwidth=8 softtabstop=0 noexpandtab
 
 " Catch trailing whitespace with \s
 set listchars=tab:»-,trail:∙,nbsp:•,precedes:←,extends:→,eol:¶
