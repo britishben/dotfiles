@@ -3,7 +3,7 @@
 """"""""""""
 " BOOLEANS "
 """"""""""""
-set nocompatible          " don't force vi compatability - useless?
+set nocompatible          " don't force vi compatibility - useless?
 set history=500           " how many lines vim should remember
 syntax enable             " enable syntax processing
 set mouse=a               " Enable mouse support in console
@@ -26,6 +26,39 @@ set fileencoding=utf-8
 set ffs=unix
 
 runtime macros/matchit.vim    "Extended % matching if/else/etc
+
+"""""""""""
+" PLUGINS "
+"""""""""""
+if !has("compatible")   "don't load plugins in vi mode
+
+let autoload_dir=expand('~/.vim/autoload')
+if !isdirectory(autoload_dir)
+    call mkdir(autoload_dir, "p", 0700)
+endif
+
+let vim_plug=autoload_dir.'/plug.vim'
+if !filereadable(vim_plug)
+    let vim_plug_loc="https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
+    if executable("curl")
+        silent !curl -fLo vim_plug vim_plug_loc
+    elseif executable("wget")
+        silent !wget -qO vim_plug vim_plug_loc
+    elseif executable("ftp")
+        silent !ftp -io vim_plug vim_plug_loc
+    else
+        echo "Can't download vim_loc!\n"
+        exit 1
+    endif
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+if exists("g:loaded_plug")
+    call plug#begin('~/.vim/plugged')
+    Plug 'fatih/vim-go'
+    call plug#end()
+endif
+
+endif "compatible
 
 """"""""""""""
 " WHITESPACE "
