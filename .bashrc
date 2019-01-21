@@ -70,7 +70,7 @@ alias gnew='git plog HEAD@{1}..HEAD@{0}' #see only latest commit
 alias sup='svn update'
 alias scm='svn commit -m'
 alias sxm='svn propedit --revprop svn:log -r'
-alias sd='svn diff'
+function sd(){ svn diff $* | less; }
 function slv(){ svn log -v $* | less; }
 function sld(){ svn log --diff $* | less; }
 
