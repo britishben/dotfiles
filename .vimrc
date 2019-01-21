@@ -25,8 +25,6 @@ set termencoding=utf-8
 set fileencoding=utf-8
 set ffs=unix
 
-runtime macros/matchit.vim    "Extended % matching if/else/etc
-
 """"""""""""""
 " WHITESPACE "
 """"""""""""""
@@ -122,15 +120,11 @@ autocmd BufNewFile,BufRead *.vue set filetype=javascript
 
 iabbrev @@  britishben@gmail.com
 
-"""""""
-" EOF "
-"""""""
+"""""""""
+" OTHER "
+"""""""""
 
-""""""""""""""""
-" EXPERIMENTAL "
-""""""""""""""""
-
-"set modeline
+runtime macros/matchit.vim    "Extended % matching if/else/etc
 
 filetype on                   " Enable filetype detection
 filetype indent on            " Enable filetype-specific indenting
@@ -140,5 +134,23 @@ filetype plugin on            " Enable filetype-specific plugins
 set listchars=tab:»-,trail:∙,nbsp:•,precedes:←,extends:→,eol:¶
 nmap <silent> <leader>s :set nolist!<CR>
 
+""""""""""""""""
+" EXPERIMENTAL "
+""""""""""""""""
+
+" Let's save undo info!
+if !isdirectory($HOME."/.vim")
+    call mkdir($HOME."/.vim", "", 0770)
+endif
+if !isdirectory($HOME."/.vim/undo-dir")
+    call mkdir($HOME."/.vim/undo-dir", "", 0700)
+endif
+set undodir=~/.vim/undo-dir
+set undofile
+
 " sudo write
 ca w!! w !sudo tee >/dev/null "%"
+
+"""""""
+" EOF "
+"""""""
