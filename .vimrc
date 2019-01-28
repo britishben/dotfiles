@@ -4,28 +4,33 @@
 " BOOLEANS "
 """"""""""""
 set nocompatible          " don't force vi compatibility - useless?
-set history=500           " how many lines vim should remember
 syntax enable             " enable syntax processing
-set mouse=a               " Enable mouse support in console
+set history=500           " how many lines vim should remember
 set visualbell            " Turn off sound
+set ttyfast               " Terminal is fast
+set modelines=0           " Don't use them, so no loss here
+set backspace=indent,eol,start " allow backspacing over everything in insert mode
+set showmatch             " show matching parenthesis
+set nowrap                " don't wrap lines
+set mouse=a               " Enable mouse support in console
 set number                " show line numbers
 set showcmd               " show (partial) command in bottom bar
 set ruler                 " show cursor position
 set autoread              " If a file is changed outside of vim, reload it without asking
 set lazyredraw            " redraw only when we need to (not during macros)
 set showmatch             " highlight matching [{()}]
-set autoindent            " indent newline to match previous line
 set smarttab              " turn <tab>s into indents at the beginning of a line
 set scrolloff=3           " 3 lines of context on page scroll
 set sidescrolloff=3       " 3 characters margin when scrolling right
 set spelllang=en_gb       " use {set spell} to enable spellchecking
 set spellfile=~/.vim/.vimspell.utf-8.add
+
 set encoding=utf-8
 set termencoding=utf-8
 set fileencoding=utf-8
 set ffs=unix
 
-runtime macros/matchit.vim    "Extended % matching if/else/etc
+runtime macros/matchit.vim " Extended % matching if/else/etc
 
 """""""""""
 " PLUGINS "
@@ -47,7 +52,7 @@ if !filereadable(vim_plug)
     elseif executable("ftp")
         silent !ftp -io vim_plug vim_plug_loc
     else
-        echo "Can't download vim_loc!\n"
+        echo "Can't download " vim_plug_loc "\n"
         exit 1
     endif
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
@@ -68,6 +73,8 @@ set nojoinspaces          " one space after punctuation
 set shiftwidth=4          " indent is 4 wide
 set softtabstop=4         " keypress <tab> is 4 wide
 set tabstop=4             " existing <tab> is 4 wide
+set autoindent            " indent newline to match previous line
+set copyindent            " copy the previous indentation on autoindenting
 
 """""""""""
 " COLOURS "
@@ -94,6 +101,7 @@ nnoremap <C-h> <C-w>h
 set ignorecase            " Do case insensitive matching
 set smartcase             " Do smart case matching
 set incsearch             " Incremental search
+set hlsearch              " highlight search terms
 
 if has("wildmenu")
     set wildmenu
@@ -162,8 +170,6 @@ iabbrev @@  britishben@gmail.com
 """"""""""""""""
 " EXPERIMENTAL "
 """"""""""""""""
-
-"set modeline
 
 filetype on                   " Enable filetype detection
 filetype indent on            " Enable filetype-specific indenting
