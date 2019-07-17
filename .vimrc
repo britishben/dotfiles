@@ -12,7 +12,9 @@ set modelines=0           " Don't use them, so no loss here
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
 set showmatch             " show matching parenthesis
 set nowrap                " don't wrap lines
-set mouse=a               " Enable mouse support in console
+if has('mouse')
+    set mouse=a               " Enable mouse support in console
+endif
 set number                " show line numbers
 set showcmd               " show (partial) command in bottom bar
 set ruler                 " show cursor position
@@ -79,7 +81,7 @@ set copyindent            " copy the previous indentation on autoindenting
 """""""""""
 " COLOURS "
 """""""""""
-colorscheme desert
+silent! colorscheme desert
 set background=dark       " pick colours for dark backgrounds
 set t_Co=256              " 256 colours
 
