@@ -1,6 +1,5 @@
 #
 # ~/.bashrc
-# BPMcKenna
 #
 
 # If not running interactively, don't do anything
@@ -96,6 +95,7 @@ function gocd() { cd "$(go list -f '{{.Dir}}' "$1")" || echo "$1 not found in $G
 
 function up() { cd "$(printf '../'%.0s $(seq 1 "${1:-1}"))" && pwd; } #up 4 goes up 4 directories
 function mol(){ more $* | less; } #more or less - I basically just want more's filename seperators
+function mcd() { mkdir -p "$1" && cd "$1" } #mkdir and cd
 
 #alias wtf='cat /etc/*-release && hostname && whoami && pwd'
 function wtf() {
